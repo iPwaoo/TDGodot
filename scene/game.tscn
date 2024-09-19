@@ -107,6 +107,7 @@ sources/1 = SubResource("TileSetAtlasSource_qua8f")
 z_index = 5
 position = Vector2(1, -2)
 zoom = Vector2(4, 4)
+process_callback = 0
 limit_left = -220
 limit_top = -145
 limit_right = 220
