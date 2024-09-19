@@ -17,11 +17,13 @@ func _physics_process(delta: float) -> void:
 	if direction_x_axis or direction_y_axis:
 		velocity.x = direction_x_axis * SPEED
 		velocity.y = direction_y_axis * SPEED
+		animated_sprite_2d.flip_h = direction_x_axis < 0  # Simplification du flip
 		if animated_sprite_2d.animation != ANIMATION_RUN:
 			animated_sprite_2d.animation = ANIMATION_RUN
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		if animated_sprite_2d.animation != ANIMATION_IDLE:
-			animated_sprite_2d.animation = ANIMATION_IDLE
+	if animated_sprite_2d.animation != ANIMATION_IDLE:
+		animated_sprite_2d.animation = ANIMATION_IDLE
+
 	move_and_slide()
