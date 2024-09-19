@@ -9,8 +9,8 @@ const JUMP_VELOCITY = -400.0
 
 
 func _physics_process(delta: float) -> void:
-	var direction_x_axis := Input.get_axis("ui_left", "ui_right")
-	var direction_y_axis := -Input.get_axis("ui_down", "ui_up")
+	var direction_x_axis := Input.get_axis("left_axis", "right_axis")
+	var direction_y_axis := -Input.get_axis("down_axis", "up_axis")
 
 	
 	# Vérifie si le joueur se déplace
