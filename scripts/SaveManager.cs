@@ -3,6 +3,18 @@ using System;
 
 public partial class SaveManager : Node
 {
+	private static SaveManager _instance;
+	
+	public static SaveManager GetInstance()
+	{
+		return _instance;
+	}
+	
+	public void _Initialize()
+	{
+		// Initialiser le singleton
+		_instance = this;
+	}
 		
 
 	public void SaveGame()
