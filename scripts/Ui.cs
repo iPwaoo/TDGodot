@@ -5,7 +5,7 @@ public partial class Ui : CanvasLayer
 {
 	public Label coinscoreslbl;
 	public int score = 0;
-	//CustomMainLoopCS mainLoop =  null;
+	CustomMainLoopCS mainLoop =  CustomMainLoopCS.GetInstance();
 
 	public override void _Ready()
 	{
@@ -42,8 +42,20 @@ public partial class Ui : CanvasLayer
 	
 	public void SaveQuitButtonPressed()
 	{
-		//SaveManager sm = mainLoop.getSaveManager();
-		//sm.SaveGame();
-		GetTree().Quit();
+		if (mainLoop == null){
+			GD.Print("null Main Loop");
+			GetTree().Quit();
+		}
+		else {
+			SaveManager sm = mainLoop.GetSaveManager();
+			if ( sm != null){
+				sm.SaveGame();
+				GetTree().Quit();
+			}
+			else {
+				GD.Print("Save And Quit");
+			}
+		}
+		
 	}	
 }
